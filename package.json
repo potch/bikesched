@@ -9,7 +9,7 @@
     "build": "npm run build:js && npm run build:css",
     "build:js": "browserify -t reactify src/main.js -o static/main.js",
     "build:css": "autoprefixer src/main.css -o static/main.css",
-    "watch": "onchange src/* -- npm run build"
+    "watch": "npm run build && onchange src/* -- npm run build"
   },
   "author": "Potch",
   "license": "ISC",

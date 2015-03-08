@@ -21102,22 +21102,73 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":69}],189:[function(require,module,exports){
-var router = require('react-router');
+var React = require('react');
+var Router = require('react-router');
+var Route = Router.Route;
+var DefaultRoute = Router.DefaultRoute;
+var NotFoundRoute = Router.NotFoundRoute;
+var RouteHandler = Router.RouteHandler;
+
+var App = React.createClass({displayName: "App",
+  render: function () {
+    return (
+      React.createElement("div", {class: "app"}, 
+        React.createElement("header", null, 
+          React.createElement("h1", null, "lol"), 
+          React.createElement("a", {href: "/home"}, "Home"), 
+          React.createElement("a", {href: "/schedule"}, "Schedule"), 
+          React.createElement("a", {href: "/submit"}, "Propose a Session"), 
+          React.createElement("a", {href: "/favorites"}, "My Schedule")
+        ), 
+        React.createElement(RouteHandler, null)
+      )
+    );
+  }
+});
+
+var Home = React.createClass({displayName: "Home",
+  render: function () {
+    return React.createElement("h1", null, "lol");
+  }
+});
+
+var Schedule = React.createClass({displayName: "Schedule",
+  render: function () {
+    return React.createElement("div", null, "Schedule");
+  }
+});
+
+var Submit = React.createClass({displayName: "Submit",
+  render: function () {
+    return React.createElement("div", null, "Schedule");
+  }
+});
+
+var Favorites = React.createClass({displayName: "Favorites",
+  render: function () {
+    return React.createElement("div", null, "Schedule");
+  }
+});
+
+var NotFound = React.createClass({displayName: "NotFound",
+  render: function () {
+    return React.createElement("div", null, "Schedule");
+  }
+});
 
 var routes = (
   React.createElement(Route, {handler: App, path: "/"}, 
-    React.createElement(DefaultRoute, {handler: Home}), 
-    React.createElement(Route, {name: "schedules", handler: Schedule}), 
-    React.createElement(Route, {name: "submit", handler: Submit}), 
-    React.createElement(Route, {name: "favorites", handler: Favorites}), 
-    React.createElement(NotFoundRoute, {handler: NotFound}), 
-    React.createElement(Redirect, {from: "company", to: "about"})
+  React.createElement(DefaultRoute, {handler: Home}), 
+  React.createElement(Route, {name: "schedules", handler: Schedule}), 
+  React.createElement(Route, {name: "submit", handler: Submit}), 
+  React.createElement(Route, {name: "favorites", handler: Favorites}), 
+  React.createElement(NotFoundRoute, {handler: NotFound})
   )
 );
 
 Router.run(routes, Router.HistoryLocation, function (Handler) {
-  React.render(React.createElement(Handler, null), document.querySelector('#app'));
+  React.render(React.createElement(Handler, null), document.body);
 });
 
 
-},{"react-router":29}]},{},[189]);
+},{"react":188,"react-router":29}]},{},[189]);
