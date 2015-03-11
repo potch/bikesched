@@ -2,6 +2,19 @@
 
 An experiment in isomorphic React that is probably also something else.
 
+## Run it locally
+
+```sh
+> npm install
+> node index.js
+```
+
+## Development
+
+```sh
+> npm run watch
+```
+
 ## How this works right now
 
 I'm open to suggestions on how this could be better structured:
