@@ -24,3 +24,39 @@ I'm open to suggestions on how this could be better structured:
 * Files in `lib` are built for the client using `browserify` and put in `static`
 
 `static` and `lib` are checked in for ease of deployment.
+
+## Data Model and API
+
+```
+event {
+		id :: int
+		title :: text
+		description :: text
+		location_id :: int
+		location_text :: text
+		owner_id :: int
+		start_time :: timestamp
+		stop_time :: timestamp
+}
+
+users {
+		id :: int
+		email :: text
+		password_digest :: text
+		created_at :: timestamp
+		updated_at :: timestamp
+}
+
+tickets {
+		id :: int
+		user_id :: int
+		event_id :: int
+		created_at :: timestamp
+		updated_at :: timestamp
+}
+
+location {
+		id :: int
+		name :: text
+}
+```
